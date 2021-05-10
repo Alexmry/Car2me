@@ -1,6 +1,16 @@
 .navbar-lewagon {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   background: white;
+  height: 60px;
+  font-weight: 700;
+  font-size: 32px;
+  a {
+    text-decoration: none;
+    color: #2D6BC8;
+  }
+  padding: 10px;
 }
 
 .navbar-lewagon .navbar-collapse {
