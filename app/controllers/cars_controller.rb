@@ -6,8 +6,8 @@ class CarsController < ApplicationController
   end
 
   def show
-    @booking = Booking.new
-    @review = Review.new(list: @list)
+    # @booking = Booking.new
+    # @review = Review.new(list: @list)
   end
 
   def new
@@ -16,6 +16,7 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(car_params)
+    raise
     if @car.save
       redirect_to car_path(@car)
     else
@@ -35,6 +36,6 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:Car).permit(:model, :brand, :price)
+    params.require(:car).permit(:model, :brand, :price, :photo)
   end
 end
