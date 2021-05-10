@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   resources :bookings do
     resources :reviews, only: [:create, :new]
   end
+  resources :cars do
+    resources :bookings, only: [ :create ]
+  end
 end
