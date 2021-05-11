@@ -1,6 +1,9 @@
 <div class="banner" width="100%">
     <h1 class="text-center">Welcome to Car2Me</h1>
     <h4>We're happy to have you around</h4>
+    <% if user_signed_in? %>
+    <%= current_user.email %>
+    <% end %>
 </div>
 <div class="container">
     <div class="cards-car">
