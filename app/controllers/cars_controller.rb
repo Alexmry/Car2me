@@ -6,8 +6,9 @@ class CarsController < ApplicationController
   end
 
   def show
-    # @booking = Booking.new
-    # @review = Review.new(list: @list)
+    @booking = Booking.new
+    @review = Review.new(list: @list)
+    @reviews = Review.where(list_id: list_id)
   end
 
   def new
