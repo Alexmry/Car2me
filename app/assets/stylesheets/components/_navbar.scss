@@ -4,12 +4,13 @@
   font-weight: 700;
   width: 100%;
   font-size: 32px;
+  top: 0;
   z-index: 2;
   position: fixed;
-    a {
+  a {
     text-decoration: none;
     color: white;
-}
+  }
   padding: 10px 15px;
 }
 .navbar-lewagon .navbar-collapse {
