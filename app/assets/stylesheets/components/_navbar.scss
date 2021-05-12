@@ -2,11 +2,14 @@
   background: #5353b9;
   height: 80px;
   font-weight: 700;
+  width: 100%;
   font-size: 32px;
-  a {
+  z-index: 2;
+  position: fixed;
+    a {
     text-decoration: none;
     color: white;
-  }
+}
   padding: 10px 15px;
 }
 .navbar-lewagon .navbar-collapse {
@@ -14,4 +17,8 @@
 }
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.nav-item-link a {
+  color: #5353b9;
 }
