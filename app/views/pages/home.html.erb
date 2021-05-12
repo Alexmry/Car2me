@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-</div>s
+</div>
 <div class="container">
   <%= link_to 'Add a car' , new_car_path, class:'btn btn-primary' %>
 </div>
@@ -22,7 +22,7 @@
                     <h5 class="card-title"><%= car.brand %></h5>
                     <p class="card-text"><%= car.model %></p>
                     <p class="card-text"><%= car.price %></p>
-                    <%= link_to "More infos", car_path(car) %>
+                    <%= link_to "Details", car_path(car), class:'btn btn-primary' %>
                 </div>
             </div>
         <% end %>
