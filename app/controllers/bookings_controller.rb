@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
-    before_action :set_booking, only: [:show, :edit, :destroy]
+    before_action :set_booking, only: [:show, :edit, :destroy, :update]
 
     def index
         @bookings = Booking.where(user_id: current_user.id)
-        @cars = find_cars() 
+        @cars = find_cars()
     end
 
     def create
@@ -23,15 +23,23 @@ class BookingsController < ApplicationController
         @booking.destroy
     end
 
-    def update 
+    def update
+        if params[:confirmed] == "true"
+            @booking.confirmed = true
+        else
+            @booking.confirmed = false
+        end
+        redirect_to bookings_path
     end
 
     def edit
+        @car = Car.where(id: @booking.car_id).first
+        @client = User.where(id: @booking.car_id)
     end
 
     def show
-        @car = Car.where(id: @booking.car_id)
-        @client = User.where(id: @booking.car_id)
+        @car = Car.find(@booking.car_id)
+        @owner = User.find(@car.user_id)
     end
 
     private
@@ -47,7 +55,7 @@ class BookingsController < ApplicationController
     def find_cars
         cars = []
         @bookings.each do |booking|
-            if booking.user_id = current_user
+            if booking.user_id == current_user
                 cars << booking.car_id
             end
         end
