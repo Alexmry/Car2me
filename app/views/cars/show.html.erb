@@ -1,1 +1,30 @@
-<h1><%= @car.brand %></h1>
+<div class="container text-center">
+  <h1>Car presentation</h1>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <div class="card-owner bg-light"> 
+      Owner of the car 😇 
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="card-client bg-light"> 
+        <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" class="card-img-top" alt="...">
+        <div class="card-client-body">
+          <h5 class="card-title"><%= @car.brand %></h5>
+          <p class="card-text"><%= @car.model %></p>
+          <p class="card-text"><%= @car.price %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'back' , root_path, class:'btn btn-danger' %>
+</div>
+
+<div class="col-12 col-sm-6">
+  <div class="bg-white rounded p-3">
+    <h5>book your car</h5>
+    <%= simple_form_for [@car, @booking] do |f| %>
+      <%= f.submit 'book', class:'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
