@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
 
     def index
         @bookings = Booking.where(user_id: current_user.id)
-        @cars = find_cars()
+        @cars = find_cars() 
     end
 
     def create
@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
                 cars << booking.car_id
             end
         end
-        cars.map { |car_id| Car.find(car_id)}
+        cars.map { |car_id| Car.find(car_id) }
         return cars
     end
     
