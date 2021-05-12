@@ -7,12 +7,15 @@ class BookingsController < ApplicationController
     end
 
     def create
-        @booking = Booking.new(booking_params)
-        if @booking.save 
-            redirect_to bookings_path
-        else
-            render :new 
-        end
+      @booking = Booking.new()
+      @booking.user_id = current_user.id
+      @booking.confirmed = true
+      @booking.car_id = params[:car_id]
+      if @booking.save
+        redirect_to bookings_path
+      else
+        render 'cars/show'
+      end
     end
 
     def new
@@ -62,5 +65,6 @@ class BookingsController < ApplicationController
         cars.map { |car_id| Car.find(car_id) }
         return cars
     end
-    
 end
+
+  
