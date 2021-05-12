@@ -1,13 +1,27 @@
-<h1 class="text-center mt-3">View all my bookings</h1>
+<h1 class="text-center mt-3">Review your bookings</h1>
 <div class="container mt-5">
+<h2>Your cars</h2>
+    <% @cars.each do |car| %>
+        <div class="card">
+            <div class="card-body d-flex align-items-center justify-content-between mb-3">
+                <% if car.photo.attached? %>
+                    <%= cl_image_tag car.photo.key, width: 300, height: 300, crop: :thumb %>
+                <% end %>
+                <%= car.brand %>
+                <%= car.model %>
+            </div>
+        </div>
+    <% end %>
+<h2>Your bookings</h2>
     <% @bookings.each do |booking| %>
         <div class="card">
             <div class="card-body d-flex align-items-center justify-content-between mb-3">
                 <% if booking.confirmed %>
-                    <p>Car name</p>
+                    <% car = Car.find(booking.car_id) %>
+                    <p><%= car.name %></p>
                     <p style="color: blue;">Confirmed</p>
                 <% else %>
-                    <p>Car name</p>
+                    <p><%= car.name %></p>
                     <p>Pending</p>
                 <% end %>
             </div>
