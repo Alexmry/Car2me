@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     def create
       @booking = Booking.new()
       @booking.user_id = current_user.id
-      @booking.confirmed = true
+      @booking.confirmed = nil
       @booking.car_id = params[:car_id]
       if @booking.save
         redirect_to bookings_path
@@ -67,4 +67,3 @@ class BookingsController < ApplicationController
     end
 end
 
-  
