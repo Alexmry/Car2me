@@ -3,18 +3,21 @@ class BookingsController < ApplicationController
 
     def index
         @bookings = Booking.where(user_id: current_user.id)
+        # where allows you to search for all booking(s)
+        # you have boooked
         @cars = find_cars()
+        # Other people booked
     end
 
     def create
       @booking = Booking.new()
-      @booking.user_id = current_user.id
+      @booking.user_id = current_user.id # why id? I thought it worked regardless
       @booking.confirmed = true
-      @booking.car_id = params[:car_id]
+      @booking.car_id = params[:car_id] # did not return anyhting null
       if @booking.save
         redirect_to bookings_path
       else
-        render 'cars/show'
+        render 'cars/show' # we dont create a form when press book btn/ alert instead.
       end
     end
 
@@ -27,7 +30,7 @@ class BookingsController < ApplicationController
     end
 
     def update
-        if params[:confirmed] == "true"
+        if params[:confirmed] == "true" #Hidden field tag exaplined
             @booking.confirmed = true
         else
             @booking.confirmed = false
@@ -36,7 +39,7 @@ class BookingsController < ApplicationController
     end
 
     def edit
-        @car = Car.where(id: @booking.car_id).first
+        @car = Car.where(id: @booking.car_id).first #Could use .find too
         @client = User.where(id: @booking.car_id)
     end
 
@@ -55,7 +58,7 @@ class BookingsController < ApplicationController
         @booking = Booking.find(params[:id])
     end
 
-    def find_cars
+    def find_cars # Show all the cars that you have booked/ not display all show
         cars = []
         @bookings.each do |booking|
             if booking.user_id == current_user
@@ -66,5 +69,4 @@ class BookingsController < ApplicationController
         return cars
     end
 end
-
-  
+# join table- when you do this explain to us!

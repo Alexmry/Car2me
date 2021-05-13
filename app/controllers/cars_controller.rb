@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :set_list, only: [:show, :destroy]
+  # skip_before_action :authenticate_user!, only: :search, show
 
   def index
     @cars = Car.all
