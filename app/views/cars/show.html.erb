@@ -24,7 +24,7 @@
   <div class="bg-white rounded p-3">
     <h5>book your car</h5>
     <%= simple_form_for [@car, @booking] do |f| %>
-      <%= hidden_field_tag :car_id, car_id =  %>
+      <%= hidden_field_tag :car_id, @car.id %>
       <%= f.submit 'book', class:'btn btn-primary' %>
     <% end %>
   </div>
