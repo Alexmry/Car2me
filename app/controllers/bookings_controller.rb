@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
       if @booking.save
         redirect_to bookings_path
       else
-        render 'cars/show' # we dont create a form when press book btn/ alert instead.
+        render :show  # we dont create a form when press book btn/ alert instead.
       end
     end
 
@@ -39,8 +39,12 @@ class BookingsController < ApplicationController
     end
 
     def edit
-        @car = Car.where(id: @booking.car_id).first #Could use .find too
-        @client = User.where(id: @booking.car_id)
+
+#         @car = Car.where(id: @booking.car_id).first #Could use .find too
+#         @client = User.where(id: @booking.car_id).first
+
+        @car = Car.find(@booking.car_id)
+        @client = User.find(@booking.car_id)
     end
 
     def show
