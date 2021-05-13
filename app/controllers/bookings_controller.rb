@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
     def index
         # where allows you to search for all booking(s)
         # you have boooked
-        @my_bookings = current_user.bookings
+        @bookings = current_user.bookings
         @cars = current_user.booked_cars
         # Other people booked
     end
