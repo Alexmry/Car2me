@@ -5,7 +5,7 @@
     <% @cars.each do |car| %>
         <div class="card">
             <div class="card-body d-flex align-items-center justify-content-between mb-3">
-                <% if car.photo.attached? %>
+                <% if car.photos.attached? %>
                     <%= cl_image_tag car.photo.key, width: 300, height: 300, crop: :thumb %>
                 <% end %>
                 <%= car.brand %>
@@ -40,7 +40,7 @@
                         <%= link_to "More infos on your booking", booking_path(booking.id), class: "btn btn-outline-success" %>
                     </div>
                 <% end %>
-                
+
             </div>
         </div>
     <% end %>
