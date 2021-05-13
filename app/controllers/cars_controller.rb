@@ -10,6 +10,7 @@ class CarsController < ApplicationController
     @booking = Booking.new
     # @review = Review.new(list: @list)
     # @reviews = Review.where(list_id: list_id)
+    @owner = User.find(@car.user_id)
   end
 
   def new

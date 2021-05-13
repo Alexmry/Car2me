@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     def create
       @booking = Booking.new()
       @booking.user_id = current_user.id # why id? I thought it worked regardless
-      @booking.confirmed = true
+      @booking.confirmed = nil
       @booking.car_id = params[:car_id] # did not return anyhting null
       if @booking.save
         redirect_to bookings_path
