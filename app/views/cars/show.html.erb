@@ -3,7 +3,9 @@
   <div class="row">
     <div class="col-12 col-lg-6">
       <div class="card-owner bg-light"> 
-      Owner of the car 😇 
+        <h2>Owner info</h2>
+        <p><%= @owner.name %></p>
+        <p><%= @owner.email %></p>
       </div>
     </div>
     <div class="col-12 col-lg-6">
@@ -12,20 +14,21 @@
         <div class="card-client-body">
           <h5 class="card-title"><%= @car.brand %></h5>
           <p class="card-text"><%= @car.model %></p>
-          <p class="card-text"><%= @car.price %></p>
+          <p class="card-text"><%= @car.price %>£/day</p>
         </div>
       </div>
     </div>
   </div>
-  <%= link_to 'back' , root_path, class:'btn btn-danger' %>
-</div>
 
-<div class="col-12 col-sm-6">
-  <div class="bg-white rounded p-3">
-    <h5>book your car</h5>
-    <%= simple_form_for [@car, @booking] do |f| %>
-      <%= hidden_field_tag :car_id, @car.id %>
-      <%= f.submit 'book', class:'btn btn-primary' %>
-    <% end %>
-  </div>
+    <div class="bg-white rounded p-3">
+      <h5>book your car</h5>
+      <div class="d-flex justify-content-between">
+        <%= simple_form_for [@car, @booking] do |f| %>
+          <%= hidden_field_tag :car_id, @car.id %>
+          <%= f.submit 'book', class:'btn btn-primary' %>
+        <% end %>
+        <%= link_to 'back' , root_path, class:'btn btn-outline-primary' %>
+      </div>
+    </div>
+
 </div>
