@@ -37,6 +37,7 @@ class BookingsController < ApplicationController
         end
         redirect_to bookings_path
     end
+    # @booking
 
     def edit
 
