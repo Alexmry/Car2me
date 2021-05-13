@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
       if @booking.save
         redirect_to bookings_path
       else
-        render 'cars/show'
+        render :show
       end
     end
 
@@ -36,8 +36,8 @@ class BookingsController < ApplicationController
     end
 
     def edit
-        @car = Car.where(id: @booking.car_id).first
-        @client = User.where(id: @booking.car_id)
+        @car = Car.find(@booking.car_id)
+        @client = User.find(@booking.car_id)
     end
 
     def show
