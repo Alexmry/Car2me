@@ -1,6 +1,7 @@
-<h1 class="text-center mt-3">Review your bookings</h1>
+<h1 class="text-center mt-3" style="color: #5353b9;">Review your bookings</h1>
 <div class="container mt-5">
-<h2>Your cars</h2>
+<h2 class="mt-5">Your cars</h2>
+<hr>
     <% @cars.each do |car| %>
         <div class="card">
             <div class="card-body d-flex align-items-center justify-content-between mb-3">
@@ -13,19 +14,22 @@
         </div>
     <% end %>
 <h2>Your bookings</h2>
+<hr>
     <% @bookings.each do |booking| %>
         <div class="card">
             <div class="card-body d-flex align-items-center justify-content-between mb-3">
+                <% car = Car.find(booking.car_id) %>
                 <% if booking.confirmed %>
-                    <% car = Car.find(booking.car_id) %>
                     <p><%= car.name %></p>
                     <p style="color: blue;">Confirmed</p>
                 <% else %>
                     <p><%= car.name %></p>
-                    <p>Pending</p>
+                    <p style="color: blue;">Pending</p>
                 <% end %>
             </div>
         </div>
     <% end %>
-    <%= link_to "More infos", booking_path(1) %>
+    <%= link_to "More infos on your car", edit_booking_path(1), class: "btn btn-outline-primary" %>
+    <br><br>
+    <%= link_to "More infos on your booking", booking_path(1), class: "btn btn-outline-success" %>
 </div>

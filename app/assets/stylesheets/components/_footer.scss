@@ -5,8 +5,9 @@
   width: 100%;
   padding: 16px 16px;
   color: white;
-  bottom: 0;
+  bottom: 1;
   position: absolute;
+  margin-top: 100px;
 }
 
 .social-media a {
@@ -19,8 +20,16 @@
   margin: 4px;
 }
 
+.social-media h2{
+  margin-right: 5px;
+}
+
 .help {
   color: white;
+}
+
+.help h2 {
+  margin-left: 5px;
 }
 .fh li {
   list-style: none;

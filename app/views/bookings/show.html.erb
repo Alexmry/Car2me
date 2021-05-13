@@ -1,17 +1,27 @@
-<h1 class="text-center mt-3">Booking</h1>
+<h1 class="text-center mt-3" style="color: #5353b9;">Your booking</h1>
 <div class="container mt-5">
-    <div class="infos-client d-flex justify-content-between align-items-center">
-        <div class="infos-text">
-            <h4>Date of rent: 14/04/2015</h4>
-            <p><%= @client.name %></p>
+    <% if @booking.confirmed %>
+        <h4>Your booking has been confirmed, we hope you'll enjoy the ride! </h4>
+    <% else %>
+        <h4>Your booking has been denied, we're sorry that it hasn't gone through</h4>
+    <% end %>
+    <div class="car-infos">
+        <h4>Car's info</h4>
+        <div class="card mt-5 d-flex justify-content-between align-items-center" style="width: 25rem;">
+            <div class="card-body">
+                <h5 class="card-title"><p><%= @car.brand %></p></h5>
+                <p class="card-text"><p><%= @car.model %></p></p>
+                <p>Owner email address: <%= @owner.email %></p>
+            </div>
+            <div class="car-photos">
+                <% if @car.photos.attached? %>
+                    <% @car.photos.each do |photo| %>
+                        <%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill %>
+                        <img src="" class="card-img-top" alt="...">
+                    <% end %>
+                <% end %>
+            </div>
         </div>
     </div>
-    <div class="car-infos d-flex justify-content-between align-items-center">
-        <%= @car[0].brand %>
-    </div>
-    <h4>Change status of rent</h4>
-    <div class="btn-changes sd-flex justify-content-between align-items-center">
-        <%= link_to "Accept Booking", bookings_path, class: "btn btn-primary" %>
-        <%= link_to "Deny Booking", bookings_path, class: "btn btn-outline-primary" %>
-    </div>
+    <%= link_to "Back", bookings_path, class:"btn btn-outline-primary mt-3" %>
 </div>
