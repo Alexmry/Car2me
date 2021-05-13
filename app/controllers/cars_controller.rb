@@ -10,6 +10,7 @@ class CarsController < ApplicationController
     @booking = Booking.new
     # @review = Review.new(list: @list)
     # @reviews = Review.where(list_id: list_id)
+    @owner = User.find(@car.user_id)
   end
 
   def new
@@ -19,6 +20,7 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     @car.user = current_user
+
     if @car.save
       redirect_to car_path(@car)
     else
@@ -26,7 +28,18 @@ class CarsController < ApplicationController
     end
   end
 
+  def edit
+    @car =  Car.find(params[:id])
+  end
+
+  def update
+    @car = Car.find(params[:id])
+    @car.update(car_params)
+    redirect_to root_path
+  end
+
   def destroy
+    @car =  Car.find(params[:id])
     @car.destroy
     redirect_to cars_path
   end
