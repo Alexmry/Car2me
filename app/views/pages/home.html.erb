@@ -11,7 +11,13 @@
   </div>
 </div>
 <div class="container">
-  <%= link_to 'Add a car' , new_car_path, class:'btn btn-primary' %>
+  <div class="d-flex justify-content-between align-items-center  my-3">
+    <%= link_to 'Add a car' , new_car_path, class:'btn btn-primary' %>
+    <div class="search-car d-flex">
+      <input type="text" placeholder="Search car.." class="btn-search-grey form-control mr-3">
+      <%= link_to 'Search' , '#', class:'btn btn-outline-primary' %>
+    </div>
+  </div>
 </div>
 <div class="container">
     <div class="cards-car">
@@ -23,11 +29,13 @@
                     <p class="card-text"><%= car.model %></p>
                     <p class="card-text"><%= car.price %></p>
                     <%= link_to "Details", car_path(car), class:'btn btn-primary' %>
-                    <% if car.user_id == current_user.id %>
-                    <!-- car.user == current_user -->
-                    <!-- if statment to make sure you only effect change on users cars- visually access to editting/delete -->
-                    <%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "U-sure?" }, class:'btn btn-outline-danger' %>
-                    <%= link_to "Edit", edit_car_path(car), class:'btn btn-outline-warning' %>
+                    <% if current_user %>
+                      <% if car.user_id == current_user.id %>
+                      <!-- car.user == current_user -->
+                      <!-- if statment to make sure you only effect change on users cars- visually access to editting/delete -->
+                      <%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "U-sure?" }, class:'btn btn-outline-danger' %>
+                      <%= link_to "Edit", edit_car_path(car), class:'btn btn-outline-warning' %>
+                      <% end %>
                     <% end %>
                 </div>
             </div>
