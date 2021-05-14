@@ -11,6 +11,11 @@ class CarsController < ApplicationController
     # @review = Review.new(list: @list)
     # @reviews = Review.where(list_id: list_id)
     @owner = User.find(@car.user_id)
+
+    @markers = {
+        lat: @car.latitude,
+        lng: @car.longitude
+      }
   end
 
   def new
@@ -20,7 +25,6 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     @car.user = current_user
-
     if @car.save
       redirect_to car_path(@car)
     else
