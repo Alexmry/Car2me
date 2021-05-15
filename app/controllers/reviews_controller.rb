@@ -9,8 +9,11 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @booking = Booking.find(params[:booking_id])
     @review.booking = @booking
-    @review.save
-    redirect_to restaurant_path(@booking)
+    if @review.save
+      redirect_to booking_path(@booking)
+    else
+      render :new
+    end
   end
 
   private

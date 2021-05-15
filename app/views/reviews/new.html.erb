@@ -1,7 +1,6 @@
-<h1 class="text-center mt-3" style="color: #5353b9;">Your booking</h1>
+<h1 class="text-center mt-3" style="color: #5353b9;">Review Booking</h1>
 <div class="container mt-5">
   <div class="Review button">
-    <h4>Review Booking</h4>
       <%= simple_form_for [ @booking, @review ] do |f| %>
         <%= f.input :rating %>
         <%= f.submit "Submit review", class: "btn btn-primary" %>
