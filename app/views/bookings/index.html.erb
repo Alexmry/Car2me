@@ -3,12 +3,9 @@
 <h2 class="mt-5">Your cars</h2>
 <hr>
 <div class="cards-bookings">
-
     <% @bookings.each do |booking| %>
-  
         <div class="card" style="width: 22rem;">
             <div class="card-body">
-
                 <% car = Car.find(booking.car_id) %>
                 <% if car.photos.attached? %>
                     <%= cl_image_tag car.photos.first.key, class: "card-img-top", width: 300, height: 300, crop: :thumb %>
@@ -26,8 +23,7 @@
         <% @my_bookings.each do |booking| %>
             <% car = Car.find(booking.car_id) %>
             <% if booking.confirmed %>
-
-                <div class="card" style="width: 18rem;">
+               <div class="card" style="width: 22rem;">
                 <% if car.photos.attached? %>
                     <%= cl_image_tag car.photos.first.key, class: "card-img-top", width: 300, height: 300, crop: :thumb %>
                 <% end %>
@@ -39,9 +35,7 @@
                     <%= link_to "More infos on your booking", booking_path(booking.id), class: "btn btn-outline-success" %>
                 </div>
             <% elsif booking.confirmed == nil %>
-
-           
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 22rem;">
                     <% if car.photos.attached? %>
                         <%= cl_image_tag car.photos.first.key, class: "card-img-top", width: 300, height: 300, crop: :thumb %>
                     <% end %>
@@ -54,8 +48,7 @@
                     <%= link_to "More infos on your booking", booking_path(booking.id), class: "btn btn-outline-success" %>
                 </div>
             <% else %>
-
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 22rem;">
                     <% if car.photos.attached? %>
                         <%= cl_image_tag car.photos.first.key, class: "card-img-top", width: 300, height: 300, crop: :thumb %>
                     <% end %>
