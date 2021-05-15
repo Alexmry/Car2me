@@ -15,11 +15,12 @@
             <%= cl_image_tag photo.key, height: 100, width: 100, crop: :fill %>
           <% end %>
         </div>
-
         <div class="card-client-body">
-          <h5 class="card-title"><%= @car.brand %></h5>
-          <p class="card-text"><%= @car.model %></p>
-          <p class="card-text"><%= @car.price %>£/day</p>
+          <div>
+            <h2 class="card-title"><%= @car.brand %></h2>
+            <p class="card-text"><%= @car.model %></p>
+          </div>
+          <h2 class="card-text"><%= @car.price %>£/day</h2>
         </div>
       </div>
     </div>
