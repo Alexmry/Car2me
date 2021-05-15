@@ -10,10 +10,9 @@ require 'open-uri'
 require 'faker'
 
 puts 'Cleaning database...'
-
-User.destroy_all
-Car.destroy_all
 Booking.destroy_all
+Car.destroy_all
+User.destroy_all
 puts 'seeding database'
 
 BASE_URL =
