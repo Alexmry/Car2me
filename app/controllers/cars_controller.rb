@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_list, only: [:show, :destroy]
+  before_action :set_car, only: [:show, :destroy]
   # skip_before_action :authenticate_user!, only: :search, show
 
   def index
@@ -11,7 +11,7 @@ class CarsController < ApplicationController
     # @review = Review.new(list: @list)
     # @reviews = Review.where(list_id: list_id)
     @owner = User.find(@car.user_id)
-    @markers = {
+    @marker = {
         lat: @car.latitude,
         lng: @car.longitude
       }
@@ -49,7 +49,7 @@ class CarsController < ApplicationController
 
   private
 
-  def set_list
+  def set_car
     @car = Car.find(params[:id])
   end
 
