@@ -7,26 +7,37 @@
     <% else %>
         <h4>Your booking has been denied, we're sorry that it hasn't gone through</h4>
     <% end %>
-    <div class="car-infos">
-        <h4>Car's info</h4>
-        <div class="card mt-5 d-flex justify-content-between align-items-center" style="width: 25rem;">
+    <div class="car-infos d-flex justify-content-between align-items-center mt-5">
+        <div class="card p-2" style="width: 25rem;">
             <div class="card-body">
-                <h5 class="card-title"><p><%= @car.brand %></p></h5>
+                <h4 class="card-title">Car's info</p></h4>
+                <p class="card-text"><p><%= @car.brand %></p></p>
                 <p class="card-text"><p><%= @car.model %></p></p>
                 <p>Owner email address: <%= @owner.email %></p>
             </div>
-            <div class="car-photos">
-                <% if @car.photos.attached? %>
-                    <% @car.photos.each do |photo| %>
-                        <%= cl_image_tag photo.key, height: 300, width: 300, crop: :fill %>
-                        <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" class="card-img-top" width="300px" height="400px">
-                    <% end %>
+        </div>
+        <div class="car-photos">
+            <% if @car.photos.attached? %>
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">     
+                <div class="carousel-inner">
+                <% @car.photos.each do |photo| %>
+                    <div class="carousel-item active">
+                        <%= cl_image_tag photo.key, class:"d-block w-100", height: 300, width: 400, crop: :fill %>
+                    </div>
                 <% end %>
-            </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+                </div>
+            <% end %>
         </div>
     </div>
-    <div class="Review button">
+    <%# <div class="Review button">
       <%= link_to "Review booking", new_booking_review_path, class:"btn btn-primary" %>
-    </div>
+    <%# </div> %> 
     <%= link_to "Back", bookings_path, class:"btn btn-outline-primary mt-3" %>
 </div>
