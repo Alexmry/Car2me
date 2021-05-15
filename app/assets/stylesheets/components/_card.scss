@@ -1,15 +1,16 @@
 .card-owner {
-    padding: 50px;
+    padding: 64px;
     margin-bottom: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
+    height: 320px;
 }
 
 .card-client {
     padding: 10px;
-    margin-bottom: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
+    height: 320px;
 }
 
 .card-client-body h2 {
@@ -25,9 +26,18 @@
 }
 
 .card-client .card-client-body{
-  padding: 16px;
+  padding-left: 32px;
+  padding-right: 32px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
 }
+
+.card-client-body {
+  margin: 24px;
+}
+
+// .card-client-body-info {
+//   padding-top: 10px;
+// }
