@@ -1,12 +1,10 @@
 
 <div class="bg-white">
-  <div class="container p-3">
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1526550517342-e086b387edda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2901&q=80)">
-      <div class="info-banner">
-        <h1>Welcome to Car2Me</h1>
-        <h4>We're happy to have you around</h4>
-        <%= link_to 'Sign in' , new_user_session_path, class:'btn btn-primary', id:'btn-signup' %>
-      </div>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1526550517342-e086b387edda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2901&q=80)">
+    <div class="info-banner">
+      <h1>Welcome to Car2Me</h1>
+      <h4>We're happy to have you around</h4>
+      <%= link_to 'Sign in' , new_user_session_path, class:'btn btn-primary', id:'btn-signup' %>
     </div>
   </div>
 </div>
@@ -18,28 +16,33 @@
       <%= link_to 'Search' , '#', class:'btn btn-outline-primary' %>
     </div>
   </div>
-</div>
-<div class="container">
-    <div class="cards-car">
-        <% @cars.each do |car| %>
-            <div class="card" style="width: 18rem;">
-                <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><%= car.brand %></h5>
-                    <p class="card-text"><%= car.model %></p>
-                    <p class="card-text"><%= car.price %></p>
-                    <%= link_to "Details", car_path(car), class:'btn btn-primary' %>
-                    <% if current_user %>
-                      <% if car.user_id == current_user.id %>
-                      <!-- car.user == current_user -->
-                      <!-- if statment to make sure you only effect change on users cars- visually access to editting/delete -->
-                      <%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "U-sure?" }, class:'btn btn-outline-danger' %>
-                      <%= link_to "Edit", edit_car_path(car), class:'btn btn-outline-warning' %>
-                      <% end %>
-                    <% end %>
-                </div>
-            </div>
+  <div class="cards-car">
+    <% @cars.each do |car| %>
+    <div class="card" style="width:22rem;">
+      <% if car.photos.attached? %>
+      <%= cl_image_tag car.photos.first.key, class:'card-img-top mb-2', width: 300, height: 300, crop: :fill %>
+      <% else %>
+      <%= image_tag "default.jpg", class:'default card-img-top mb-2'%>
+      <% end %>
+      <!-- <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" class="card-img-top" alt="..."> -->
+      <div class="card-body">
+
+        <h5 class="card-title"><%= car.brand %></h5>
+        <p class="card-text"><%= car.model %></p>
+        <p class="card-text"><%= car.price %></p>
+        <%= link_to "Details", car_path(car), class:'btn btn-primary' %>
+        <% if current_user %>
+        <!-- if true current user is logged in-->
+        <% if car.user_id == current_user.id %>
+        <!-- car.user == current_user -->
+        <!-- if statment to make sure you only effect change on users cars- visually access to editting/delete -->
+        <%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "U-sure?" }, class:'btn btn-outline-danger' %>
+        <%= link_to "Edit", edit_car_path(car), class:'btn btn-outline-warning' %>
         <% end %>
+        <% end %>
+      </div>
     </div>
+    <% end %>
+  </div>
 </div>
 
