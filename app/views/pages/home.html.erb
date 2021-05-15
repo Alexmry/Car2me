@@ -30,6 +30,7 @@
                     <p class="card-text"><%= car.price %></p>
                     <%= link_to "Details", car_path(car), class:'btn btn-primary' %>
                     <% if current_user %>
+                    <!-- if true current user is logged in-->
                       <% if car.user_id == current_user.id %>
                       <!-- car.user == current_user -->
                       <!-- if statment to make sure you only effect change on users cars- visually access to editting/delete -->

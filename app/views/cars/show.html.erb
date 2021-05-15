@@ -1,5 +1,5 @@
 <div class="container text-center items-align-center">
-  <h1>Car presentation</h1>
+  <h1 class="p-5">Car presentation</h1>
   <div class="row">
     <div class="col-12 col-lg-6">
       <div class="card-owner bg-light"> 
@@ -15,11 +15,12 @@
             <%= cl_image_tag photo.key, height: 100, width: 100, crop: :fill %>
           <% end %>
         </div>
-
         <div class="card-client-body">
-          <h5 class="card-title"><%= @car.brand %></h5>
-          <p class="card-text"><%= @car.model %></p>
-          <p class="card-text"><%= @car.price %>£/day</p>
+          <div>
+            <h2 class="card-title"><%= @car.brand %></h2>
+            <p class="card-text"><%= @car.model %></p>
+          </div>
+          <h2 class="card-text"><%= @car.price %>£/day</h2>
         </div>
       </div>
     </div>
