@@ -1,15 +1,33 @@
 .card-owner {
     padding: 50px;
     margin-bottom: 10px;
-    font-size: 5rem;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
 }
 
 .card-client {
-    padding: 50px;
+    padding: 10px;
     margin-bottom: 10px;
-    font-size: 5rem;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
+}
+
+.card-client-body h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-client-body p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-client .card-client-body{
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
 }

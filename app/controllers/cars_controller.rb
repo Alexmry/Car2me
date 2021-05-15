@@ -12,10 +12,10 @@ class CarsController < ApplicationController
     # @reviews = Review.where(list_id: list_id)
     @owner = User.find(@car.user_id)
 
-    @markers = {
-        lat: @car.latitude,
-        lng: @car.longitude
-      }
+    # @markers = {
+    #     lat: @car.latitude,
+    #     lng: @car.longitude
+    #   }
   end
 
   def new
