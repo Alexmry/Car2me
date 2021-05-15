@@ -25,16 +25,23 @@
       </div>
     </div>
   </div>
-  <% if current_user.id != @car.user_id %>
-    <div class="bg-white rounded p-3" style="width: 380px">
-      <h5>book your car</h5>
-      <div class="d-flex justify-content-between">
-        <%= simple_form_for [@car, @booking] do |f| %>
-          <%= hidden_field_tag :car_id, @car.id %>
-          <%= f.submit 'book', class:'btn btn-primary' %>
-        <% end %>
-        <%= link_to 'back' , root_path, class:'btn btn-outline-primary' %>
-      </div>
+  <div class="map-container">
+    <div id="map"
+       style="width: 50%; height: 300px;"
+       data-markers="<%= @marker.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-  <% end %>
+  </div>
+  <div class="d-flex justify-content-center">
+   <div class="bg-white rounded p-3" style="width: 380px">
+     <h5>book your car</h5>
+     <div class="d-flex justify-content-between mx-5">
+       <%= simple_form_for [@car, @booking] do |f| %>
+         <%= hidden_field_tag :car_id, @car.id %>
+         <%= f.submit 'book', class:'btn btn-primary' %>
+       <% end %>
+       <%= link_to 'back' , root_path, class:'btn btn-outline-primary' %>
+     </div>
+   </div>
+  </div>
 </div>
