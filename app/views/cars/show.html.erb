@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-
+  <% if current_user.id != @car.user_id %>
     <div class="bg-white rounded p-3" style="width: 380px">
       <h5>book your car</h5>
       <div class="d-flex justify-content-between">
@@ -35,5 +35,5 @@
         <%= link_to 'back' , root_path, class:'btn btn-outline-primary' %>
       </div>
     </div>
-
+  <% end %>
 </div>
