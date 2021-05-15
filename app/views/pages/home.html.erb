@@ -1,10 +1,9 @@
-
 <div class="bg-white">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1526550517342-e086b387edda?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2901&q=80)">
     <div class="info-banner">
       <h1>Welcome to Car2Me</h1>
       <h4>We're happy to have you around</h4>
-      <div id="typed-strings"></div>
+      <p><span id="typed-strings"></span></p>
       <%= link_to 'Sign in' , new_user_session_path, class:'btn btn-primary', id:'btn-signup' %>
     </div>
   </div>
@@ -19,7 +18,7 @@
   </div>
   <div class="cards-car">
     <% @cars.each do |car| %>
-    <div class="card" style="width:18rem;">
+    <div class="card" data-aos="fade-up" style="width:18rem;">
       <% if car.photos.attached? %>
       <%= cl_image_tag car.photos.first.key, class:'card-img-top mb-2', width: 270, height: 300, crop: :fill %>
       <% else %>
