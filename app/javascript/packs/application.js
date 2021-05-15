@@ -29,10 +29,9 @@ import "bootstrap";
 
 
 // Internal imports, e.g:
-// import { initMapbox } from './map';
+// import { initMapbox } from '../components/map';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
   // initMapbox();
 });
