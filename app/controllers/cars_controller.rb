@@ -15,6 +15,8 @@ class CarsController < ApplicationController
         lat: @car.latitude,
         lng: @car.longitude
       }
+    #@car.save
+    raise
   end
 
   def new
@@ -54,6 +56,6 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:model, :brand, :price, photos:[])
+    params.require(:car).permit(:model, :brand, :price, :address, photos:[])
   end
 end
