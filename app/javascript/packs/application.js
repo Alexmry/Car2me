@@ -35,6 +35,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initTyped } from '../plugins/typed';
 import { initAOS } from '../plugins/aos';
 import { initDrift } from '../plugins/drift_zoom';
+import { initJump } from '../plugins/jump';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -43,4 +44,5 @@ document.addEventListener('turbolinks:load', () => {
   initTyped();
   initAOS();
   initDrift();
+  initJump();
 });
