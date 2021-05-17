@@ -18,14 +18,30 @@
     </div>
     <h4>Change status of rent</h4>
     <div class="btn-changes d-flex justify-content-begin align-items-center">
+        <button type="button" class="btn btn-primary mr-4" data-toggle="modal" data-target="#myModal">Accept Booking</button>
         <%= simple_form_for (@booking) do |f| %>
-            <%= hidden_field_tag :confirmed, "true" %>
-            <%= f.submit "Accept Booking", class: "btn btn-primary mr-5"%>
+                <%= hidden_field_tag :confirmed, "false" %>
+                <%= f.submit "Deny Booking", class: "btn btn-outline-primary"%>
         <% end %>
-        <%= simple_form_for (@booking) do |f| %>
-            <%= hidden_field_tag :confirmed, "false" %>
-            <%= f.submit "Deny Booking", class: "btn btn-outline-primary"%>
-        <% end %>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Are you sure?</h4>
+                </div>
+                <div class="modal-body">
+                    <p>This means that you'll be renting the <%= @car.brand %> from <%= @client.email %></p>
+                </div>
+                <div class="modal-footer">
+                    <%= simple_form_for (@booking) do |f| %>
+                        <%= hidden_field_tag :confirmed, "true" %>
+                        <%= f.submit "Agree", class: "btn btn-outline-primary mr-5"%>
+                    <% end %>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" >Close</button>
+                </div>
+            </div>
+        </div>
     </div>
     <%# <%= link_to "Accept", booking_path(@booking, confirmed: true), method: :patch %>
 </div>
