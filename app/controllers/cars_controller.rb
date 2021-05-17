@@ -15,8 +15,6 @@ class CarsController < ApplicationController
         lat: @car.latitude,
         lng: @car.longitude
       }
-    #@car.save
-    raise
   end
 
   def new
