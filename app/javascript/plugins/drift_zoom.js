@@ -24,3 +24,5 @@ const initDrift = () => {
 }
 
 export { initDrift };
+
+// https://github.com/imgix/drift
