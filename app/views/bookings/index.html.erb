@@ -1,50 +1,65 @@
-<h1 class="text-center mt-3" style="color: #5353b9;">Review your bookings</h1>
+<h1 class="text-center mt-3 title-bookings" style="color: #5353b9;">Review your bookings</h1>
 <div class="container mt-5">
-<h2 class="mt-5">Your cars</h2>
-<hr>
-<div class="cards-bookings">
-    <% @bookings.each do |booking| %>
-        <% car = Car.find(booking.car_id) %>
-        <div class="card" data-aos="fade-right" style="width: 18rem;">
-            <% if car.photos.attached? %>
-                <%= cl_image_tag car.photos.first.key, class: "card-img-top", width: 300, height: 300, crop: :thumb %>
-            <% else %>
-                <%= image_tag "default.jpg", class:"default" %>
-            <% end %>
-            <div class="card-body">
-                <h5 class="card-title"><%= car.brand %></h5>
-                <p class="card-text"><%= car.model %></p>
-            </div>
-            <%= link_to "More infos on your car", edit_booking_path(1), class: "btn btn-outline-primary" %>
-        </div>
-    <% end %>
-</div>
-<h2 class="mt-5">Your bookings</h2>
-<hr>
-    <div class="cards-bookings">
-        <% @my_bookings.each do |booking| %>
-            <% car = Car.find(booking.car_id) %>
-            <div class="card" data-aos="fade-right" style="width: 18rem;">
-                <% if car.photos.attached? %>
-                    <%= cl_image_tag car.photos.first.key, class: "card-img-top", width: 300, height: 300, crop: :thumb %>
-                <% else %>
-                    <%= image_tag "default.jpg", class:"default" %>
-                <% end %>
-                <div class="card-body">
-                    <% if booking.confirmed %>
-                        <h5 class="card-title">Confirmed</h5>
-                    <% elsif booking.confirmed == nil %>
-                        <h5 class="card-title">Pending</h5>
+    <div class="d-flex justify-content-between">
+        <h2 class="mt-1 title-bookings">Your cars</h2>
+        <%= link_to "Back", root_path, class:"btn btn-info-car-small" %>
+    </div>
+    <hr>
+    <div class="bakground-card-purple">
+        <div class="cards-bookings">
+            <% @bookings.each do |booking| %>
+                <% car = Car.find(booking.car_id) %>
+                <div class="card car-bookings-index" data-aos="fade-right" style="width: 18rem;">
+                    <% if car.photos.attached? %>
+                        <%= cl_image_tag car.photos.first.key, class: "card-img-top", width: 300, height: 300, crop: :thumb %>
                     <% else %>
-                        <h5 class="card-title">Refused</h5>
+                        <%= image_tag "default.jpg", class:"default" %>
                     <% end %>
-                    <p class="card-text"><%= car.model %></p>
-                    <p class="card-text"><%= car.brand %></p>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= car.brand.upcase %></h5>
+                        <p class="card-text" style="margin-bottom: 0px;"><%= car.model.capitalize %></p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-center">
+                        <%= link_to "Infos", edit_booking_path(1), class: "btn btn-info-car" %>
+                    </div>
                 </div>
-                <%= link_to "More infos on your booking", booking_path(booking.id), class: "btn btn-outline-success" %>
-            </div>
-        <% end %>
+            <% end %>
+        </div>
+    </div>
+    <h2 class="mt-1 title-bookings mt-5">Your bookings</h2>
+    <hr>
+    <div class="bakground-card-purple mt-4">
+        <div class="cards-bookings">
+            <% @my_bookings.each do |booking| %>
+                <% car = Car.find(booking.car_id) %>
+                <div class="card car-bookings-index" data-aos="fade-right" style="width: 18rem;">
+                    <% if car.photos.attached? %>
+                        <%= cl_image_tag car.photos.first.key, class: "card-img-to", width: 300, height: 300, crop: :thumb %>
+                    <% else %>
+                        <%= image_tag "default.jpg", class:"default" %>
+                    <% end %>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <h5>Status:</h5>
+                            <% if booking.confirmed %>
+                                <h5 class="card-title card-info-status">Confirmed</h5>
+                            <% elsif booking.confirmed == nil %>
+                                <h5 class="card-title card-info-status">Pending</h5>
+                            <% else %>
+                                <h5 class="card-title card-info-status">Refused</h5>
+                            <% end %>
+                        </div>
+                        <p class="card-text"><%= car.model.upcase %></p>
+                        <p class="card-text"><%= car.brand.capitalize %></p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-center">
+                        <%= link_to "Infos", booking_path(booking.id), class: "btn btn-info-car" %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
     </div>
 </div>
-
 <!-- what is the (1) meant to represent/ID becuase we dont have bookings working -->
