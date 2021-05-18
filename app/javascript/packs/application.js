@@ -32,6 +32,7 @@ AOS.init();
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initMapboxHomePage } from '../plugins/init_mapbox_home_page';
 import { initTyped } from '../plugins/typed';
 import { initAOS } from '../plugins/aos';
 import { initDrift } from '../plugins/drift_zoom';
@@ -41,6 +42,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
+  initMapboxHomePage();
   initTyped();
   initAOS();
   initDrift();
