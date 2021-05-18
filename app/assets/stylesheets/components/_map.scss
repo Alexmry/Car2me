@@ -7,14 +7,21 @@
 }
 
 .card-home-page {
-  height: 80px;
   border: 1px solid black;
-
+  block-size: fit-content;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-#map {
+#map-2 {
   height: 100vh;
   position: sticky;
   top: 0;
   margin-left: 16px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-body {
+
 }
