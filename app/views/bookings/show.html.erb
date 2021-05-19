@@ -19,7 +19,7 @@
         </div>
         <div class="car-photos">
             <% if @car.photos.attached? %>
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">     
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                 <% @car.photos.each do |photo| %>
                     <div class="carousel-item active">
