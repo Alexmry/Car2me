@@ -10,7 +10,7 @@
     </div>
     <div class="col-12 col-lg-6">
       <div class="card-client bg-light">
-        <div class="mt-3 carousel slide" data-ride="carousel">>
+        <div class="mt-3 carousel slide" data-ride="carousel">
           <% @car.photos.each do |photo| %>
             <%= cl_image_tag photo.key, height: 200, width: 200, crop: :fill %>
           <% end %>
@@ -46,7 +46,7 @@
      </div>
    </div>
   </div>
-  <% unless @car.bookings.empty? %>
+ <% unless @car.bookings.empty? %>
     <div class="row my-2">
       <% @car.bookings.each do |booking| %>
         <div class="col-12 mt-3">
@@ -68,6 +68,7 @@
       <% end %>
     </div>
   <% end %>
+
 </div>
 
 
