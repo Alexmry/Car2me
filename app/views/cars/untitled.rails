@@ -1,0 +1,22 @@
+ <% unless @car.bookings.empty? %>
+    <div class="row my-2">
+      <% @car.bookings.each do |booking| %>
+        <div class="col-12 mt-3">
+          <div class="card w-75">
+            <div class="card-body">
+                <h5 class="card-title">
+                  <% booking.review.rating.times do %>
+                  <i class="fas fa-star"></i>
+                  <% end %>
+                  <% empty_stars = 5 - booking.review.rating %>
+                  <% empty_stars.times do %>
+                  <i class="far fa-star"></i>
+                  <% end %>
+                </h5>
+                <p class="card-text"><%= booking.review.content %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
