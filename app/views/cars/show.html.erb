@@ -1,11 +1,11 @@
-<div class="container text-center">
-  <h1 class="p-5">Car presentation</h1>
-  <div class="row">
+<div class="container">
+  <h1 class="title-bookings mt-3 border-bottom" style="color: #5353b9;">Owner & Car details</h1>
+  <div class="row mt-5">
 
 <!-------------------Card 1 Map & Owner Info ------------->
 
     <div class="col-12 col-lg-6">
-      <div class="card-owner bg-light d-flex justify-content-center"> 
+      <div class="card-owner d-flex align-items-center justify-content-around"> 
 
         <div id="map"
 
@@ -13,10 +13,11 @@
            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
 
-        <div class="card-owner-body mt-5">
+        <div class="card-owner-body mt-5 mr-4">
           <h2>Owner info</h2>
           <p><%= @owner.name %></p>
           <p><%= @owner.email %></p>
+          <svg style="width: 24px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 20 20" xml:space="preserve"><title>send 2</title><g class="nc-icon-wrapper" fill="#111111"><g transform="translate(2 2)"><path fill="#111111" d="M15.707,0.293c-0.273-0.272-0.68-0.365-1.043-0.234l-14,5C0.287,5.193,0.026,5.54,0.002,5.939 c-0.024,0.4,0.192,0.775,0.551,0.955l4.586,2.292L11,5l-4.187,5.862l2.292,4.586C9.276,15.787,9.623,16,10,16 c0.021,0,0.041-0.001,0.061-0.002c0.4-0.024,0.747-0.284,0.882-0.662l5-14C16.072,0.973,15.98,0.566,15.707,0.293z"/></g></g></svg>
         </div>
       </div>
     </div>
@@ -61,6 +62,8 @@
     </div>
   </div>
 
+  <h1 class="title-bookings mt-5 border-bottom" style="color: #5353b9;">Reviews</h1>
+
 <!------------------Card 2 Carousel------------------------->
 <!--   <div class="map-container">
     <div id="map"
@@ -71,7 +74,7 @@
   </div> -->
 
 <!----------------------Book Bttn Card------------------------------->
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center mt-5">
    <div class="bg-white rounded p-3" style="width: 380px">
      <h5>book your car</h5>
      <div class="d-flex justify-content-between mx-5">
