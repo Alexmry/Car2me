@@ -8,12 +8,13 @@
         <h4>Your booking has been denied, we're sorry that it hasn't gone through</h4>
     <% end %>
     <div class="car-infos d-flex justify-content-between align-items-center mt-5">
-        <div class="card p-2" style="width: 25rem;">
+        <div class="card p-2" style="width: 25rem; box-shadow: 0 10px 15px rgba(0,0,0,0.2);">
             <div class="card-body">
-                <h4 class="card-title">Car's info</p></h4>
-                <p class="card-text"><p><%= @car.brand %></p></p>
-                <p class="card-text"><p><%= @car.model %></p></p>
-                <p>Owner email address: <%= @owner.email %></p>
+                <h4 class="card-title">Car's info</h4>
+                <hr>
+                <p class="card-text"><p><%= @car.model.upcase %></p>
+                <p class="card-text"><p><%= @car.brand.capitalize %></p></p>
+                <p style="color: #5353b9;">Owner email address: <br> <%= @owner.email %></p>
             </div>
         </div>
         <div class="car-photos">
@@ -45,7 +46,7 @@
         </div>
     </div>
     <div class="Review button">
-      <%= link_to "Review booking", new_booking_review_path(@booking, @review), class:"btn btn-primary mt-3" %>
+      <%= link_to "Review booking", new_booking_review_path(@booking, @review), class:"btn btn-info-car my-5" %>
     </div>
     <%= link_to "Back", bookings_path, class:"btn btn-outline-primary mt-3" %>
 </div>

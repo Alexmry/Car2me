@@ -37,7 +37,21 @@
 .card-client-body {
   margin: 24px;
 }
-
+.bakground-card-purple {
+  background: #e9e9fc;;
+  border-radius: 20px;
+  padding: 40px;
+}
+.bakground-card-white {
+  background: white;;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+}
+.car-bookings-index {
+  box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+  border-radius: 15px;
+}
 // .card-client-body-info {
 //   padding-top: 10px;
 // }

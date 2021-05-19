@@ -10,3 +10,34 @@
     border: transparent;
     background-color: transparent;
 }
+.btn-info-car {
+    border-radius: 25px;
+    border: 1px solid #5353b9;
+    color: #5353b9;
+    background-color: white;
+    padding: 7px 8px;
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    &:hover {
+        background-color: #5353b9;
+        color:white;
+        transition-delay: 100ms;
+        transition-duration: 150ms;
+    }
+}
+.btn-info-car-small {
+    border-radius: 5px;
+    border: 1px solid #5353b9;
+    color: #5353b9;
+    font-size: large;
+    background-color: white;
+    padding: 10px 15px;
+    width: 15%;
+    &:hover {
+        background-color: #5353b9;
+        color:white;
+        transition-delay: 100ms;
+        transition-duration: 150ms;
+    }
+}
