@@ -24,10 +24,10 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import AOS, { init } from 'aos';
+// import AOS, { init } from 'aos';
 // import mapboxgl from 'mapbox-gl';
 // import 'mapbox-gl/dist/mapbox-gl.css';
-AOS.init();
+// AOS.init();
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -38,6 +38,7 @@ import { initAOS } from '../plugins/aos';
 import { initDrift } from '../plugins/drift_zoom';
 import { initJump } from '../plugins/jump';
 import { initBookingResponsivity } from '../components/bookingResponsivity';
+import { date } from "../plugins/flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -50,4 +51,5 @@ document.addEventListener('turbolinks:load', () => {
   initDrift();
   initJump();
   initBookingResponsivity();
+  date();
 });

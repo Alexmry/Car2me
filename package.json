@@ -9,6 +9,7 @@
     "aos": "^3.0.0-beta.6",
     "bootstrap": "4.6",
     "drift-zoom": "^1.4.3",
+    "flatpickr": "^4.6.9",
     "jquery": "^3.6.0",
     "jump.js": "^1.0.2",
     "mapbox-gl": "^2.2.0",
