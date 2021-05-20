@@ -1,7 +1,7 @@
 <h1 class="text-center mt-3 title-bookings" style="color: #5353b9;">Review your bookings</h1>
 <div class="container mt-5">
     <div class="d-flex justify-content-between">
-        <h2 class="mt-1 title-bookings">Your cars</h2>
+        <h2 class="mt-1 title-bookings" id="title-bookings-show">Your cars</h2>
         <%= link_to "Back", root_path, class:"btn btn-info-car-small" %>
     </div>
     <hr>
@@ -60,6 +60,9 @@
                 </div>
             <% end %>
         </div>
+    </div>
+    <div class="top-button d-flex justify-content-center" width="100%">
+        <button class="btn-chevronUp mt-5" id="btn-goUp-bookings"><i class="fas fa-chevron-circle-up"></i></button>
     </div>
 </div>
 <!-- what is the (1) meant to represent/ID becuase we dont have bookings working -->
