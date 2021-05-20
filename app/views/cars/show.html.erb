@@ -82,6 +82,7 @@
       <% if @owner != current_user %>
          <%= simple_form_for [@car, @booking] do |f| %>
            <%= hidden_field_tag :car_id, @car.id %>
+           <%= f.input
            <%= f.submit 'book', class:'btn btn-primary' %>
          <% end %>
        <% end %>
@@ -121,7 +122,7 @@
       <% end %>
     </div>
   <% end %>
-</div>
+
 
 
 
