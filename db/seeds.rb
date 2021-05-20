@@ -10,12 +10,11 @@ require 'open-uri'
 require 'faker'
 
 puts 'Cleaning database...'
-Booking.destroy_all
-Car.destroy_all
-User.destroy_all
+Booking.destroy_all if Rails.env.development?
+Car.destroy_all if Rails.env.development?
+User.destroy_all if Rails.env.development?
 puts 'seeding database'
 
-BASE_URL =
 5.times do
     User.create(
         email: Faker::Internet.email,

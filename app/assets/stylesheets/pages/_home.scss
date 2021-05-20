@@ -25,11 +25,30 @@
   .main-container {
     width: 700px;
   }
+  .background-card-purple-2 {
+    background: #e9e9fc;;
+    border-radius: 20px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 24px;
+    width: 70%;
+  }
 }
+
 @media (max-width: 720px) {
   /* For a screen < 720px, this CSS will be read */
   .main-container{
     width: 500px;
+  }
+  .background-card-purple-2 {
+    background: #e9e9fc;;
+    border-radius: 20px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 24px;
+    width: 70%;
   }
 }
 @media (max-width: 540px) {
