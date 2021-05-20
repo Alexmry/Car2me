@@ -16,9 +16,7 @@ class BookingsController < ApplicationController
       @booking.confirmed = nil
       @booking.car_id = params[:car_id] # did not return anyhting null
       if @booking.save
-        redirect_to bookings_path
-      else
-        render :show  # we dont create a form when press book btn/ alert instead.
+        redirect_to bookings_path  # we dont create a form when press book btn/ alert instead.
       end
     end
 
