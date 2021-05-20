@@ -98,17 +98,22 @@
         <% unless booking.review.nil? %>
           <div class="col-12 mt-3">
             <div class="card w-75">
-              <div class="card-body">
-                  <h5 class="card-title">
-                    <% booking.review.rating.times do %>
-                    <i class="fas fa-star"></i>
-                    <% end %>
-                    <% empty_stars = 5 - booking.review.rating %>
-                    <% empty_stars.times do %>
-                    <i class="far fa-star"></i>
-                    <% end %>
-                  </h5>
-                  <p class="card-text"><%= booking.review.content %></p>
+              <div class="row">
+                <div class="card-body">
+                    <h5 class="card-title ; col-10">
+                      <% booking.review.rating.times do %>
+                      <i class="fas fa-star" style="color:#5353b9 !important;"></i>
+                      <% end %>
+                      <% empty_stars = 5 - booking.review.rating %>
+                      <% empty_stars.times do %>
+                      <i class="far fa-star" style="color:#5353b9 !important;"></i>
+                      <% end %>
+                    </h5>
+                    <p class="card-text pl-3"><%= booking.review.content %></p>
+                </div>
+                <div class="col-2 mt-3 pr-4">
+                  <%= image_tag "default.jpg", height: 60, width: 60, crop: :fill %>
+                </div>
               </div>
             </div>
           </div>
