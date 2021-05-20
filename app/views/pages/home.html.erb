@@ -10,7 +10,9 @@
     </div>
   </div>
 </div>
+<!-----------------------------End--Banner------------------------------------>
 <div class="container">
+<!---------------------------Search and Add------------------------------------->
   <div class="d-flex justify-content-between align-items-center  my-4">
     <%= link_to 'Add a car' , new_car_path, class:'btn btn-primary' %>
     <div class="search-car">
@@ -25,6 +27,8 @@
       </form>
     </div>
   </div>
+<!-----------------------------------End-Search and Add------------------------------------->
+<!----------------------------------Cards && Map ----------------------------------->
   <div class="main-container">
     <div class="cards-car">
       <% @cars.each do |car| %>
@@ -39,29 +43,36 @@
           <h5 class="card-title"><%= car.brand %></h5>
           <p class="card-text"><%= car.model %></p>
           <p class="card-text"><%= car.price %></p>
-          <%= link_to "Details", car_path(car), class:'btn btn-primary' %>
-          <% if current_user %>
-          <!-- if true current user is logged in-->
-          <% if car.user_id == current_user.id %>
-          <!-- car.user == current_user -->
-          <!-- if statment to make sure you only effect change on users cars- visually access to editting/delete -->
-          <%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "U-sure?" }, class:'btn btn-outline-danger' %>
-          <%= link_to "Edit", edit_car_path(car), class:'btn btn-outline-warning' %>
-          <% end %>
-          <% end %>
+          <div class="btn-spacing">
+            <%= link_to "Details", car_path(car), class:'btn-info-car-small' %>
+            <% if current_user %>
+            <!-- if true current user is logged in-->
+            <% if car.user_id == current_user.id %>
+            <!-- car.user == current_user -->
+            <!-- if statment to make sure you only effect change on users cars- visually access to editting/delete -->
+            <%= link_to "Edit", edit_car_path(car), class:'btn btn-outline-warning' %>
+            <%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "U-sure?" }, class:'btn btn-outline-danger' %>
+            <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
       <% end %>
     </div>
+<!----------------------------------------End-Cards---------------------------------------------->
     <div id="map-2" class="map"
        style="width: 100%; height: 100vh;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-
+  <!---------------------------------End-Cards && Map ----------------------------------->
+<!---------------------------------UP Chevron------------------------------------------>
   <div class="top-button d-flex justify-content-center" width="100%">
     <button class="btn-chevronUp mt-5" id="btn-goUp"><i class="fas fa-chevron-circle-up"></i></button>
   </div>
+<!---------------------------------End-UP Chevron ----------------------------------->
 </div>
+<!---------------------------------End of Container ----------------------------------->
+
 

@@ -30,14 +30,35 @@
     border-radius: 5px;
     border: 1px solid #5353b9;
     color: #5353b9;
-    font-size: large;
+    font-size: small;
     background-color: white;
-    padding: 10px 15px;
-    width: 15%;
+    padding: 6px 10px;
     &:hover {
         background-color: #5353b9;
         color:white;
         transition-delay: 100ms;
         transition-duration: 150ms;
+        text-decoration: none;
     }
+}
+
+.btn-outline-warning {
+  border-radius: 5px;
+  border: 1px solid C33B00;
+  color: C33B00;
+  font-size: small;
+  padding: 6px 10px;
+}
+
+.btn-outline-danger {
+  border-radius: 5px;
+  border: 1px solid ED2436;
+  color: ED2436;
+  font-size: small;
+  padding: 6px 10px;
+}
+
+.btn-spacing {
+  display: flex;
+  justify-content: space-between;
 }
