@@ -1,7 +1,5 @@
 .footer {
   background: #5353b9;
-  display: flex;
-  justify-content: space-around;
   width: 100%;
   padding: 16px 16px;
   color: white;
@@ -10,7 +8,12 @@
   margin-top: 100px;
 }
 
-.social-media a {
+.footer-box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-social a {
   color: white;
   opacity: 0.15;
   text-decoration: none;
@@ -20,21 +23,22 @@
   margin: 4px;
 }
 
-.social-media h2{
+.footer-social h2{
   margin-right: 5px;
 }
 
-.help {
+.footer-assistance {
   color: white;
 }
 
-.help h2 {
+.footer-assistance h2 {
   margin-left: 5px;
 }
-.help-advices-list {
-  padding-left: 0px;
-}
-.help-advices-list li {
+.footer-assistance li {
   list-style: none;
   padding-left: 0px;
+}
+.footer-copyright {
+  display: flex;
+  justify-content: center;
 }
