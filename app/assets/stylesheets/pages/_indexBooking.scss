@@ -1,6 +1,6 @@
 .cards-bookings {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
 }
 .title-bookings {
@@ -13,4 +13,12 @@
     color: #5353b9;
     padding-bottom: 3px;
     border-bottom: 2px solid #5353b9;
+}
+
+@media only screen and (max-width: 1000px) {
+    .cards-bookings {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 30px;
+    }
 }

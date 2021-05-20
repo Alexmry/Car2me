@@ -24,7 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import AOS from 'aos';
+import AOS, { init } from 'aos';
 // import mapboxgl from 'mapbox-gl';
 // import 'mapbox-gl/dist/mapbox-gl.css';
 AOS.init();
@@ -37,6 +37,7 @@ import { initTyped } from '../plugins/typed';
 import { initAOS } from '../plugins/aos';
 import { initDrift } from '../plugins/drift_zoom';
 import { initJump } from '../plugins/jump';
+import { initBookingResponsivity } from '../components/bookingResponsivity';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -47,4 +48,5 @@ document.addEventListener('turbolinks:load', () => {
   initAOS();
   initDrift();
   initJump();
+  initBookingResponsivity();
 });
