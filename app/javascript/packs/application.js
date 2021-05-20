@@ -38,6 +38,7 @@ import { initAOS } from '../plugins/aos';
 import { initDrift } from '../plugins/drift_zoom';
 import { initJump } from '../plugins/jump';
 import { initBookingResponsivity } from '../components/bookingResponsivity';
+import "flatpickr/dist/flatpickr.css"
 import { date } from "../plugins/flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
