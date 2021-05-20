@@ -10,10 +10,18 @@
 
 .card-home-page {
   background: white;
-
   block-size: fit-content;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.background-card-purple-2 {
+  background: #e9e9fc;;
+  border-radius: 20px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 24px;
   width: 70%;
 }
 
@@ -53,11 +61,7 @@
   border-radius: 20px;
   padding: 40px;
 }
-.background-card-purple-2 {
-  background: #e9e9fc;;
-  border-radius: 20px;
-  padding: 40px;
-}
+
 
 .bakground-card-white {
   background: white;;

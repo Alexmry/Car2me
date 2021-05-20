@@ -11,12 +11,6 @@
   justify-content: space-between;
 }
 
-.cards-car {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 24px;
-}
-
 .website {
     padding-top: 100px;
 }
@@ -24,4 +18,23 @@
 .default {
   width: 100%;
   height: 45%;
+}
+
+@media (max-width: 960px) {
+  /* For a screen < 960px, this CSS will be read */
+  .main-container {
+    width: 700px;
+  }
+}
+@media (max-width: 720px) {
+  /* For a screen < 720px, this CSS will be read */
+  .main-container{
+    width: 500px;
+  }
+}
+@media (max-width: 540px) {
+  /* For a screen < 540px, this CSS will be read */
+  .main-container {
+    width: 300px;
+  }
 }
