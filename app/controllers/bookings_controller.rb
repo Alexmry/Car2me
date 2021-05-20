@@ -12,16 +12,14 @@ class BookingsController < ApplicationController
     def create
       @booking = Booking.new()
       # @booking.user_id = current_user.id
+      @booking.starts_at = params[:booking][:starts_at]  #how to implement this with strong params
+      @booking.ends_at = params[:booking][:ends_at]
       @booking.user = current_user
       @booking.confirmed = nil
       @booking.car_id = params[:car_id] # did not return anyhting null
       if @booking.save
         redirect_to bookings_path  # we dont create a form when press book btn/ alert instead.
       end
-    end
-
-    def new
-        @booking = Booking.new()
     end
 
     def update
@@ -55,7 +53,7 @@ class BookingsController < ApplicationController
     private
 
     def booking_params
-        params.require(:bookings).permit(:confirmed, :car_id, :user_id)
+        params.require(:bookings).permit(:starts_at, :ends_at)
     end
 
     def set_booking
