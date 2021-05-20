@@ -42,6 +42,7 @@ import { initBookingResponsivity } from '../components/bookingResponsivity';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  console.log("hey");
   initMapbox();
   initMapboxHomePage();
   initTyped();
