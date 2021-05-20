@@ -82,14 +82,16 @@
       <% if @owner != current_user %>
          <%= simple_form_for [@car, @booking] do |f| %>
            <%= hidden_field_tag :car_id, @car.id %>
-           <%= f.input
+           <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+           <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
            <%= f.submit 'book', class:'btn btn-primary' %>
          <% end %>
        <% end %>
-       <%= link_to 'back' , root_path, class:'btn btn-outline-primary' %>
      </div>
    </div>
+          <%= link_to 'back' , root_path, class:'btn btn-outline-primary' %>
   </div>
+  
 
 <!---------------------End----Book Bttn Card------------------------------->
 
