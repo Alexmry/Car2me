@@ -11,7 +11,7 @@
   </div>
 </div>
 <!-----------------------------End--Banner------------------------------------>
-<div class="container">
+<div class="home-page-container">
 <!---------------------------Search and Add------------------------------------->
   <div class="d-flex justify-content-between align-items-center  my-4">
     <%= link_to 'Add a car' , new_car_path, class:'btn btn-primary' %>
@@ -19,7 +19,7 @@
       <!-- going to root path using action / -->
       <form class="d-flex justify-content-between" method="GET" action='/'>
         <div class="pr-4">
-          <input type="text" placeholder="Search car.." class="btn-search-grey form-control mr-3" style="width: 15.5rem" name='query'>
+          <input type="text" placeholder="Search car.." class="btn-search-grey form-control mr-3" style="width: 22rem" name='query'>
         </div>
         <div>
           <input type="submit" name="search" class='btn btn-outline-primary'>
@@ -30,7 +30,7 @@
 <!-----------------------------------End-Search and Add------------------------------------->
 <!----------------------------------Cards && Map ----------------------------------->
   <div class="main-container">
-    <div class="cards-car">
+    <div class="cards-car background-card-purple-2">
       <% @cars.each do |car| %>
       <div class="card-home-page" data-aos="fade-up" style="width:14rem;">
         <% if car.photos.attached? %>
@@ -61,7 +61,7 @@
     </div>
 <!----------------------------------------End-Cards---------------------------------------------->
     <div id="map-2" class="map"
-       style="width: 100%; height: 100vh;"
+       style="height: 100vh;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>

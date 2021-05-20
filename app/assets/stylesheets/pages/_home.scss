@@ -1,10 +1,22 @@
 // Specific CSS for your home-page
 
+.home-page-container {
+  width: 70%;
+  justify-content: center;
+  margin: auto;
+}
+
+.main-container {
+  width: 100%;
+  justify-content: space-between;
+}
+
 .cards-car {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 24px;
 }
+
 .website {
     padding-top: 100px;
 }
