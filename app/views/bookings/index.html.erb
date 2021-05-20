@@ -54,8 +54,11 @@
                         <p class="card-text"><%= car.brand.capitalize %></p>
                     </div>
                     <hr>
-                    <div class="d-flex justify-content-center">
-                        <%= link_to "Infos", booking_path(booking.id), class: "btn btn-info-car" %>
+                    <div class="d-flex justify-content-around align-items-center mb-3">
+                        <%= link_to "Infos", booking_path(booking.id), class: "btn btn-info-car", style:"margin-bottom: 0px"%>
+                        <% if booking.confirmed == false %>
+                            <%= link_to "Delete", booking_path(booking.id), class: "btn btn-outline-danger", method: :delete, style: "height: 50px;" %>
+                        <% end %>
                     </div>
                 </div>
             <% end %>

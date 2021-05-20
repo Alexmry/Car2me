@@ -24,10 +24,6 @@ class BookingsController < ApplicationController
         @booking = Booking.new()
     end
 
-    def destroy
-        @booking.destroy
-    end
-
     def update
         if params[:confirmed] == "true" #Hidden field tag exaplined
             @booking.confirmed = true
@@ -38,6 +34,11 @@ class BookingsController < ApplicationController
         # @booking = Booking.new(booking_params)
     end
     # @booking
+
+    def destroy
+        @booking.destroy 
+        redirect_to bookings_path
+    end
 
     def edit
 #       @car = Car.where(id: @booking.car_id).first #Could use .find too
