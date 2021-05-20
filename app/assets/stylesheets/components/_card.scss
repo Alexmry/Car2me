@@ -8,6 +8,15 @@
     background-color: #94d0cc;
 }
 
+.card-home-page {
+  background: white;
+
+  block-size: fit-content;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 70%;
+}
+
 .card-client {
     padding: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -44,6 +53,12 @@
   border-radius: 20px;
   padding: 40px;
 }
+.background-card-purple-2 {
+  background: #e9e9fc;;
+  border-radius: 20px;
+  padding: 40px;
+}
+
 .bakground-card-white {
   background: white;;
   border-radius: 20px;
