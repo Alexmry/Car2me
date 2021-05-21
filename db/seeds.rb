@@ -15,27 +15,68 @@ Car.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 puts 'seeding database'
 
-5.times do
-    User.create(
-        email: Faker::Internet.email,
-        password: Faker::Internet.username
-    )
-end
+emails = ['p@gmail.com', 'j@gmail.com', 'a@gmail.com', 'f@gmail.com']
+passwords = ['p12345', 'j12345', 'a12345', 'f12345']
+names = ['pierre', 'jonas', 'alex', 'felix']
+addresses = ['bordeaux', 'lille', 'lyon', 'paris']
+
 model_car = ['Toyota', 'BMW', 'Ferrari', 'Range Rover', 'Mini', 'Smart']
 brand_car = ['DAF Car', 'Artega', 'Gaz Car', 'Polo', 'SIN Car', 'Tesla']
-for i in 1..10
+
+puts "creating user"
+for i in 0..3
+    User.create(
+        email: emails[i],
+        password: passwords[i],
+        name: names[i]
+    )
+end
+
+users_id = []
+users = User.all
+users.each do |user|
+    users_id << user.id
+end
+
+puts "creating car"
+for i in 0..3
     Car.create(
         model: model_car.sample,
         brand: brand_car.sample,
         price: rand(50..200),
-        user_id: i
+        user_id: users_id.sample,
+        address: addresses[i]
     )
 end
-bools = [true, false]
-for i in 0..10
+
+cars_id = []
+cars = Car.all
+cars.each do |car|
+    cars_id << car.id
+end
+
+puts "creating bookings"
+5.times do
     Booking.create(
-        user_id: i,
-        car_id: rand(0..10),
-        confirmed: bools.sample
+        user_id: users_id.sample,
+        car_id: cars_id.sample,
+        confirmed: nil
     )
 end
+
+bookings_id = []
+bookings = Booking.all
+bookings.each do |booking|
+    bookings_id << booking.id
+end
+
+puts 'creating reviews'
+10.times do 
+    Review.create(
+        booking_id: bookings_id.sample,
+        rating: rand(1..5),
+        content: Faker::Movie.quote
+    )
+end
+
+puts "end of seed"

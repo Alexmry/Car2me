@@ -8,10 +8,12 @@
 
             <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", style:"object-fit: cover", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <img src="https://images.unsplash.com/photo-1593085512500-5d55148d6f0d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="avatar dropdown-toggle" style="object-fit: cover" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <% end %>
-
             <div class="dropdown-menu dropdown-menu-right nav-item-link" aria-labelledby="navbarDropdown">
               <%= link_to "Add a car", new_car_path, class: "dropdown-item" %>
+              <%= link_to "Edit my profile", edit_user_registration_path, class:"dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </div>
