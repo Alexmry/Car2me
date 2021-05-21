@@ -4,11 +4,15 @@
         <div class="infos-client d-flex justify-content-between align-items-center">
             <div class="infos-text">
                 <%= link_to "Back", bookings_path, class:"btn btn-outline-primary mb-4" %>
-                <h4>Date of rent: 14/04/2015</h4>
+                <h4>Date of rent: <%= @booking.starts_at %> / <%= @booking.ends_at %></h4>
                 <p><%= @client.email %></p>
             </div>
             <div class="img-booking-edit">
-                <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" width="400" height="300">
+                <% if @client.photo.attached? %>
+                    <%= cl_image_tag @client.photo.key, height: 300, height: 400, crop: :fill %>
+                <% else %>
+                    <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" width="400" height="300">
+                <% end %>
             </div>
         </div>
         <div class="car-infos d-flex justify-content-between align-items-center">
