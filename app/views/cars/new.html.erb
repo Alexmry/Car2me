@@ -1,8 +1,15 @@
-<%= simple_form_for(@car) do |f| %>
-  <%= f.input :model %>
-  <%= f.input :brand %>
-  <%= f.input :price %>
-  <%= f.input :address %>
-  <%= f.input :photos, as: :file, input_html: {multiple: true} %>
-  <%= f.submit class: 'btn btn-flat' %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h2 class="title-bookings">Add a New Car:</h2>
+      <%= simple_form_for(@car) do |f| %>
+        <%= f.input :model %>
+        <%= f.input :brand %>
+        <%= f.input :price %>
+        <%= f.input :address %>
+        <%= f.input :photos, as: :file, input_html: {multiple: true} %>
+        <%= f.submit class: 'btn btn-info-car' %>
+      <% end %>
+    </div>
+  </div>
+</div>

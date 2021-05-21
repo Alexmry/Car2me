@@ -19,7 +19,7 @@
       <!-- going to root path using action / -->
       <form class="d-flex justify-content-between" method="GET" action='/'>
         <div class="pr-4">
-          <input type="text" placeholder="Search car.." class="btn-search-grey form-control mr-3" style="width: 22rem" name='query'>
+          <input type="text" placeholder="Search car.." class="btn-search-grey form-control mr-2" style="width: 12.5rem" name='query'>
         </div>
         <div>
           <input type="submit" name="search" class='btn btn-outline-primary'>
@@ -50,7 +50,7 @@
             <% if car.user_id == current_user.id %>
             <!-- car.user == current_user -->
             <!-- if statment to make sure you only effect change on users cars- visually access to editting/delete -->
-            <%= link_to "Edit", edit_car_path(car), class:'btn btn-outline-warning' %>
+            <%= link_to "Edit", edit_car_path(car), class:'btn btn-outline-warning mx-1'%>
             <%= link_to "Delete", car_path(car), method: :delete, data: { confirm: "U-sure?" }, class:'btn btn-outline-danger' %>
             <% end %>
             <% end %>
@@ -61,7 +61,7 @@
     </div>
 <!----------------------------------------End-Cards---------------------------------------------->
     <div id="map-2" class="map"
-       style="height: 100vh;"
+       style="height: 80vh;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>

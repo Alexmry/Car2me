@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 
 .home-page-container {
-  width: 70%;
+  width: 80%;
   justify-content: center;
   margin: auto;
 }
@@ -12,7 +12,7 @@
 }
 
 .website {
-    padding-top: 100px;
+  padding-top: 100px;
 }
 
 .default {
@@ -20,10 +20,10 @@
   height: 45%;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1500px) {
   /* For a screen < 960px, this CSS will be read */
   .main-container {
-    width: 700px;
+    width: 900px;
   }
   .background-card-purple-2 {
     background: #e9e9fc;;
@@ -36,10 +36,10 @@
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1000px) {
   /* For a screen < 720px, this CSS will be read */
   .main-container{
-    width: 500px;
+    width: 700px;
   }
   .background-card-purple-2 {
     background: #e9e9fc;;
@@ -48,12 +48,11 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 24px;
-    width: 70%;
   }
 }
-@media (max-width: 540px) {
+@media (max-width: 700px) {
   /* For a screen < 540px, this CSS will be read */
   .main-container {
-    width: 300px;
+    width: 500px;
   }
 }
