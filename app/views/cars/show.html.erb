@@ -36,11 +36,15 @@
              <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
            </ol>
            <div class="carousel-inner">
-             <% @car.photos.each_with_index do |slide, i| %>
-               <div class="carousel-item <%= 'active' if i == 0 %>">
-                  <%= cl_image_tag slide.key, height: 175, width: 300, crop: :pad, class:"d-block w-100"%>
-               </div>
-             <% end %>
+              <% if @car.photos.attached? %>
+                <% @car.photos.each_with_index do |slide, i| %>
+                  <div class="carousel-item <%= 'active' if i == 0 %>">
+                      <%= cl_image_tag slide.key, height: 175, width: 300, crop: :pad, class:"d-block w-100"%>
+                  </div>
+                <% end %>
+              <% else %>
+                <%= image_tag "default", height: 175, width: 300, class:"d-block w-100" %>
+              <% end %>
            </div>
            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
