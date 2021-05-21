@@ -9,7 +9,7 @@
         <div class="cards-bookings">
             <% @bookings.each do |booking| %>
                 <% car = Car.find(booking.car_id) %>
-                <div class="card car-bookings-index" data-aos="fade-right" style="width: 18rem;">
+                <div class="card car-bookings-index" data-aos="fade-right" style="width: 16rem;">
                     <% if car.photos.attached? %>
                         <%= cl_image_tag car.photos.first.key, class: "card-img-top", width: 300, height: 300, crop: :thumb %>
                     <% else %>
@@ -33,7 +33,7 @@
         <div class="cards-bookings">
             <% @my_bookings.each do |booking| %>
                 <% car = Car.find(booking.car_id) %>
-                <div class="card car-bookings-index" data-aos="fade-right" style="width: 18rem;">
+                <div class="card car-bookings-index" data-aos="fade-right" style="width: 16rem;">
                     <% if car.photos.attached? %>
                         <%= cl_image_tag car.photos.first.key, class: "card-img-to", width: 300, height: 300, crop: :thumb %>
                     <% else %>
