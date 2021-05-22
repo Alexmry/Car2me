@@ -23,9 +23,9 @@ addresses = ['bordeaux', 'lille', 'lyon', 'paris']
 model_car = ['Toyota', 'BMW', 'Ferrari', 'Range Rover', 'Mini', 'Smart']
 brand_car = ['DAF Car', 'Artega', 'Gaz Car', 'Polo', 'SIN Car', 'Tesla']
 cloudinary_url = [
-    'https://res.cloudinary.com/alexmry/image/upload/v1621092031/5wh2ljov0qz5zcf3ywuhwj02in4y.jpg', 
-    'https://res.cloudinary.com/alexmry/image/upload/v1621501706/k507cm368h81oar0obgdzk5mt0nu.jpg', 
-    'https://res.cloudinary.com/alexmry/image/upload/v1621501706/k507cm368h81oar0obgdzk5mt0nu.jpg'
+    'https://res.cloudinary.com/alexmry/image/upload/v1621092031/5wh2ljov0qz5zcf3ywuhwj02in4y.jpg',
+    'https://res.cloudinary.com/alexmry/image/upload/v1621684145/car/Cars/1_is6znm.jpg',
+    'https://res.cloudinary.com/alexmry/image/upload/v1621684137/car/Cars/2_uxudaf.jpg'
 ]
 avatar_url = "https://res.cloudinary.com/alexmry/image/upload/v1620146216/samples/bike.jpg"
 
@@ -53,7 +53,7 @@ users.each do |user|
 end
 
 puts "creating car"
-for i in 0..3
+for i in 0..2
     Car.create(
         model: model_car.sample,
         brand: brand_car.sample,
@@ -65,10 +65,10 @@ end
 
 cars_id = []
 cars = Car.all
-cars.each do |car|
-    cars_id << car.id
-    photo = image_fetcher(cloudinary_url.sample)
-    car.photos.attach({io: photo, filename: "#{car.id}_image.jpg"})
+for i in 0..2
+    cars_id << cars[i].id
+    photo = image_fetcher(cloudinary_url[i])
+    cars[i].photos.attach({io: photo, filename: "#{cars[i].id}_image.jpg"})
 end
 
 puts "creating bookings"
@@ -89,7 +89,7 @@ bookings.each do |booking|
 end
 
 puts 'creating reviews'
-10.times do 
+10.times do
     Review.create(
         booking_id: bookings_id.sample,
         rating: rand(1..5),
