@@ -16,6 +16,9 @@
                 <p class="card-text"><p><%= @car.brand.capitalize %></p></p>
                 <p class="card-text"><p>From : <%= @booking.starts_at %> <br> To: <%= @booking.ends_at %></p></p>
                 <p style="color: #5353b9;">Owner email address: <br> <%= @owner.email %></p>
+                <% days = (@booking.ends_at[-2..]).to_i - (@booking.starts_at[-2..]).to_i %>
+                <% price = days * @car.price %>
+                <p class="card-text" style="font-weight: 700;">Total price: £<%= price %> </p>
             </div>
         </div>
         <div class="car-photos">
