@@ -126,7 +126,10 @@
                     <p class="card-text pl-3"><%= booking.review.content %></p>
                 </div>
                 <div class="col-2 mt-3 pr-4">
-                  <%= image_tag "default.jpg", height: 60, width: 60, crop: :fill %>
+                  <% user = User.find(booking.user_id) %>
+                  <% if user.photo.attached? %>
+                    <%= cl_image_tag user.photo.key, height: 60, width: 60, crop: :fill, class:"avatar-large" %>
+                  <% end %>
                 </div>
               </div>
             </div>

@@ -34,7 +34,7 @@
       <% @cars.each do |car| %>
       <div class="card-home-page" data-aos="fade-up">
         <% if car.photos.attached? %>
-        <%= cl_image_tag car.photos.first.key, class:'card-img-top mb-2', height: 110, crop: :fill %>
+        <%= cl_image_tag car.photos.first.key, class:'card-img-top mb-2', height: 150, crop: :fill %>
         <% else %>
         <%= image_tag "default.jpg", class:'default card-img-top mb-2'%>
         <% end %>

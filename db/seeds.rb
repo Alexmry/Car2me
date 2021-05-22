@@ -22,8 +22,19 @@ addresses = ['bordeaux', 'lille', 'lyon', 'paris']
 
 model_car = ['Toyota', 'BMW', 'Ferrari', 'Range Rover', 'Mini', 'Smart']
 brand_car = ['DAF Car', 'Artega', 'Gaz Car', 'Polo', 'SIN Car', 'Tesla']
+cloudinary_url = [
+    'https://res.cloudinary.com/alexmry/image/upload/v1621092031/5wh2ljov0qz5zcf3ywuhwj02in4y.jpg', 
+    'https://res.cloudinary.com/alexmry/image/upload/v1621501706/k507cm368h81oar0obgdzk5mt0nu.jpg', 
+    'https://res.cloudinary.com/alexmry/image/upload/v1621501706/k507cm368h81oar0obgdzk5mt0nu.jpg'
+]
+avatar_url = "https://res.cloudinary.com/alexmry/image/upload/v1620146216/samples/bike.jpg"
 
 puts "creating user"
+
+def image_fetcher(url)
+  URI.open(url)
+end
+
 for i in 0..3
     User.create(
         email: emails[i],
@@ -32,10 +43,13 @@ for i in 0..3
     )
 end
 
+puts "setting photo for user"
 users_id = []
 users = User.all
 users.each do |user|
     users_id << user.id
+    photo = image_fetcher(avatar_url)
+    user.photo.attach({io: photo,filename: "#{user.id}_image.jpg"})
 end
 
 puts "creating car"
@@ -53,6 +67,8 @@ cars_id = []
 cars = Car.all
 cars.each do |car|
     cars_id << car.id
+    photo = image_fetcher(cloudinary_url.sample)
+    car.photos.attach({io: photo, filename: "#{car.id}_image.jpg"})
 end
 
 puts "creating bookings"
@@ -60,7 +76,9 @@ puts "creating bookings"
     Booking.create(
         user_id: users_id.sample,
         car_id: cars_id.sample,
-        confirmed: nil
+        confirmed: nil,
+        starts_at: "2021-05-09",
+        ends_at: "2021-05-12"
     )
 end
 
