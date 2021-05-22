@@ -35,7 +35,7 @@
                 <% car = Car.find(booking.car_id) %>
                 <div class="card car-bookings-index" data-aos="fade-right" style="width: 16rem;">
                     <% if car.photos.attached? %>
-                        <%= cl_image_tag car.photos.first.key, class: "card-img-to", width: 300, height: 300, crop: :thumb %>
+                        <%= cl_image_tag car.photos.first.key, class: "card-img-top", width: 300, height: 300, crop: :thumb %>
                     <% else %>
                         <%= image_tag "default.jpg", class:"default" %>
                     <% end %>
