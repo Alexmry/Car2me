@@ -10,9 +10,9 @@ require 'open-uri'
 require 'faker'
 
 puts 'Cleaning database...'
-Booking.destroy_all if Rails.env.development?
-Car.destroy_all if Rails.env.development?
-User.destroy_all if Rails.env.development?
+Booking.destroy_all
+Car.destroy_all
+User.destroy_all
 puts 'seeding database'
 
 emails = ['p@gmail.com', 'j@gmail.com', 'a@gmail.com', 'f@gmail.com']
@@ -24,8 +24,8 @@ model_car = ['Toyota', 'BMW', 'Ferrari', 'Range Rover', 'Mini', 'Smart']
 brand_car = ['DAF Car', 'Artega', 'Gaz Car', 'Polo', 'SIN Car', 'Tesla']
 cloudinary_url = [
     'https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
-    'https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
-    'https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
+    'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80'
   ]
 avatar_url = "https://res.cloudinary.com/alexmry/image/upload/v1620146216/samples/bike.jpg"
 
