@@ -1,6 +1,6 @@
 <h1 class="text-center mt-3 title-bookings" style="color: #5353b9;">Review your bookings</h1>
 <div class="container mt-5">
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between align-items-center">
         <h2 class="mt-1 title-bookings" id="title-bookings-show">Your cars</h2>
         <%= link_to "Back", root_path, class:"btn btn-info-car-small" %>
     </div>
@@ -29,7 +29,7 @@
     </div>
     <h2 class="mt-1 title-bookings mt-5">Your bookings</h2>
     <hr>
-    <div class="bakground-card-purple mt-4">
+    <div class="bakground-card-purple-dark mt-4">
         <div class="cards-bookings">
             <% @my_bookings.each do |booking| %>
                 <% car = Car.find(booking.car_id) %>

@@ -43,9 +43,12 @@
                   </div>
                 <% end %>
               <% else %>
-                <%= image_tag "default", height: 175, width: 300, class:"d-block w-100" %>
+                <div class="d-flex justify-content-center">
+                  <%= image_tag "default", height: 180, width: 'auto', class:"d-block" %>
+                </div>
               <% end %>
            </div>
+           <hr>
            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
              <span class="sr-only">Previous</span>
@@ -67,7 +70,7 @@
     </div>
   </div>
 
-  <h1 class="title-bookings mt-5 border-bottom" style="color: #5353b9;">Reviews</h1>
+  <h1 class="title-bookings mt-5 border-bottom" style="color: #5353b9;">Bookings & Reviews</h1>
 
 <!------------------Card 2 Carousel------------------------->
 <!--   <div class="map-container">
@@ -79,32 +82,36 @@
   </div> -->
 
 <!----------------------Book Bttn Card------------------------------->
-  <div class="d-flex justify-content-center mt-5">
+
+  <div class="d-flex justify-content-between">
+
+  <div class="d-flex justify-content-center mt-3 mr-3">
    <div class="bg-white rounded p-3" style="width: 380px">
-     <h5>book your car</h5>
      <div class="d-flex justify-content-between mx-5">
       <% if @owner != current_user %>
          <%= simple_form_for [@car, @booking] do |f| %>
            <%= hidden_field_tag :car_id, @car.id %>
            <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
            <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-           <%= f.submit 'book', class:'btn btn-primary' %>
+           <div class="d-flex justify-content-between">
+              <%= f.submit 'book', class:'btn btn-primary' %>
+              <%= link_to 'back' , root_path, class:'btn btn-outline-primary ' %>
+           </div>
          <% end %>
        <% end %>
      </div>
    </div>
-          <%= link_to 'back' , root_path, class:'btn btn-outline-primary' %>
   </div>
-  
+
 
 <!---------------------End----Book Bttn Card------------------------------->
 
   <% unless @car.bookings.empty? %>
-    <div class="row my-2">
+    <div class="row ml-3">
       <% @car.bookings.each do |booking| %>
         <% unless booking.review.nil? %>
           <div class="col-12 mt-3">
-            <div class="card w-75">
+            <div class="card w-95">
               <div class="row">
                 <div class="card-body">
                     <h5 class="card-title ; col-10">
@@ -128,6 +135,8 @@
       <% end %>
     </div>
   <% end %>
+
+  </div>
 
 
 

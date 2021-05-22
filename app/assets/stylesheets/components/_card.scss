@@ -25,7 +25,7 @@
   grid-gap: 24px;
 }
 
-// Card for show page 
+// Card for show page
 .card-client {
     padding: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -58,11 +58,16 @@
   margin: 24px;
 }
 .bakground-card-purple {
-  background: #e9e9fc;;
+  background: #e9e9fc;
   border-radius: 20px;
   padding: 40px;
 }
 
+.bakground-card-purple-dark {
+  background: #DCD3F7;
+  border-radius: 20px;
+  padding: 40px;
+}
 
 .bakground-card-white {
   background: white;;
