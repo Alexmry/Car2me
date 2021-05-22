@@ -42,7 +42,7 @@ class BookingsController < ApplicationController
 #       @car = Car.where(id: @booking.car_id).first #Could use .find too
 #       @client = User.where(id: @booking.car_id).first
         @car = Car.find(@booking.car_id)
-        @client = User.find(@booking.car_id)
+        @client = User.find(@booking.user_id)
     end
 
     def show
