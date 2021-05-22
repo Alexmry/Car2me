@@ -23,10 +23,10 @@ addresses = ['bordeaux', 'lille', 'lyon', 'paris']
 model_car = ['Toyota', 'BMW', 'Ferrari', 'Range Rover', 'Mini', 'Smart']
 brand_car = ['DAF Car', 'Artega', 'Gaz Car', 'Polo', 'SIN Car', 'Tesla']
 cloudinary_url = [
-    'https://res.cloudinary.com/alexmry/image/upload/v1621092031/5wh2ljov0qz5zcf3ywuhwj02in4y.jpg',
-    'https://res.cloudinary.com/alexmry/image/upload/v1621684145/car/Cars/1_is6znm.jpg',
-    'https://res.cloudinary.com/alexmry/image/upload/v1621684137/car/Cars/2_uxudaf.jpg'
-]
+    'https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    'https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+    'https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
+  ]
 avatar_url = "https://res.cloudinary.com/alexmry/image/upload/v1620146216/samples/bike.jpg"
 
 puts "creating user"
@@ -68,6 +68,7 @@ cars = Car.all
 for i in 0..2
     cars_id << cars[i].id
     photo = image_fetcher(cloudinary_url[i])
+    print photo
     cars[i].photos.attach({io: photo, filename: "#{cars[i].id}_image.jpg"})
 end
 
