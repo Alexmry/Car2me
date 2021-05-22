@@ -42,7 +42,7 @@
         <div class="card-body">
           <h5 class="card-title"><%= car.brand %></h5>
           <p class="card-text"><%= car.model %></p>
-          <p class="card-text"><%= car.price %></p>
+          <p class="card-text">£<%= car.price %>/day</p>
           <div class="btn-spacing">
             <%= link_to "Details", car_path(car), class:'btn-info-car-small' %>
             <% if current_user %>
